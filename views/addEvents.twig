@@ -1,0 +1,15 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<form method="post" action="/event/addaction">
+
+     <b>Titre:</b><input type="text" name="title" />
+    <b>Nombre Places:</b> <input type="number" name="nbrPlace" />
+   <b>Type evennement:</b> <input type="text"  name="typeEvents" />
+   
+
+   <input type="submit" value="Ajouter" />
+   </form>
+
+
+{% endblock %}

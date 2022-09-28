@@ -1,0 +1,24 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+	<h1>Formulaire de modification</h1>
+	<a href="/event/">Retour</a>
+	<a href="/event/addform">Ajouter</a>
+	<form method="post" action="/event/updateaction">
+		Titre:
+		<input type="text" name="title" value="{{data[0].title}}"/>
+		Nombre Places:
+		<input type="number" name="nbrPlace" value="{{data[0].nbrPlace}}"/>
+
+        Type evennement:
+		<input type="text" name="typeEvents" value="{{data[0].typeEvents}}"/>
+
+		<input type="hidden" name="ids" value="{{ data[0]._id }}"/>
+		<input
+		type="submit" value="update"/>
+	{# <pre>
+	    {{ dump(data) }}
+	</pre> #}
+	</form>
+{% endblock %}
