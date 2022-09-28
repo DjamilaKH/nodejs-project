@@ -1,0 +1,35 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+	<a href="/event/addform">Ajouter</a>
+	<table border="1">
+		<thead>
+			<th>Titre</th>
+			<th>Nombre Places</th>
+			<th>Type Evenement</th>
+
+			<th>Action</th>
+		</thead>
+		<tbody>
+			{% for item in data %}
+				<tr>
+					<td>
+						{{ item.title }}
+					</td>
+					<td>
+						{{ item.nbrPlace }}
+					</td>
+					<td>
+						{{ item.typeEvents }}
+					</td>
+
+					<td>
+						<a href="/event/delete/{{ item._id }}">Supprimer</a>
+
+						<a href="/event/updateForm/{{ item._id }}">Update</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

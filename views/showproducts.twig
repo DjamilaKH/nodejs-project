@@ -1,0 +1,38 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+	<a href="/product/addform">Ajouter</a>
+	<table border="1">
+		<thead>
+			<th>Reférence</th>
+			<th>Libellé</th>
+			<th>Prix</th>
+			<th>Type</th>
+			<th>Action</th>
+		</thead>
+		<tbody>
+			{% for item in data %}
+				<tr>
+					<td>
+						{{ item.ref }}
+					</td>
+					<td>
+						{{ item.libel }}
+					</td>
+					<td>
+						{{ item.prix }}
+					</td>
+					<td>
+						{{ item.type }}
+					</td>
+
+					<td>
+						<a href="/product/delete/{{ item._id }}">Supprimer</a>
+
+						<a href="/product/updateForm/{{ item._id }}">Update</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

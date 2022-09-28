@@ -1,0 +1,25 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+	<h1>Formulaire de modification</h1>
+	<a href="/product/">Retour</a>
+	<a href="/product/addform">Ajouter</a>
+	<form method="post" action="/product/updateaction">
+		Reférence :
+		<input type="text" name="ref" value="{{data[0].ref}}"/>
+		Libellé:
+		<input type="text" name="libel" value="{{data[0].libel}}"/>
+		Prix:
+		<input type="number" step="00.01" name="prix" value="{{data[0].prix}}"/>
+		Type:
+		<input type="text" name="type" value="{{data[0].type}}"/>
+
+		<input type="hidden" name="ids" value="{{ data[0]._id }}"/>
+		<input
+		type="submit" value="update"/>
+	{# <pre>
+	    {{ dump(data) }}
+	</pre> #}
+	</form>
+{% endblock %}
