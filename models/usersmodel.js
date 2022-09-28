@@ -3,7 +3,7 @@ var schema = mongoose.Schema;
 
 
 Usersschema = new schema({
-    login: String,
+    username: String,
     password: String,
     email: String,
     fullname: String,
@@ -12,4 +12,4 @@ Usersschema = new schema({
 
 })
 
-module.exports = mongoose.model('users', Usersschema);
+module.exports = mongoose.model('Users', Usersschema);
