@@ -1,0 +1,17 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+	{% extends 'layout.twig' %}
+
+	{% block body %}
+		<form method="post" action="/auth/loginaction">
+			<b>entrer votre username:</b><input type="text" name="username"/>
+			<b>entrer votre password:</b><input type="text" name="password"/>
+			<input type="submit" value="login"/>
+		</form>
+
+
+	{% endblock %}
+
+{% endblock %}

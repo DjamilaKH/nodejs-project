@@ -13,7 +13,7 @@ var productsRouter = require('./routes/productsServices');
 var eventsRouter = require('./routes/eventsServices')
 var usersRouter = require('./routes/usersServices')
 var home = require('./routes/homepage')
-
+var authentification = require('./routes/auth')
 var app = express();
 
 // view engine setup
@@ -32,6 +32,7 @@ app.use('/product', productsRouter);
 app.use('/event', eventsRouter);
 app.use('/user', usersRouter);
 app.use('/home',home);
+app.use('/auth',authentification);
 
 
 

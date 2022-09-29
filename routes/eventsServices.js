@@ -52,6 +52,7 @@ router.post('/updateaction', function (req, res) {
     });
     res.redirect('/event/')
 });
+//rechercher event par nbrePlace et typeEvents
 router.get('/:eventPlace', function (req, res) {
     event.findOne({ nbrPlace: req.params.eventPlace })
         .then((data) => { res.status(200).json(data); console.log(data) })
