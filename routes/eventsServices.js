@@ -52,5 +52,18 @@ router.post('/updateaction', function (req, res) {
     });
     res.redirect('/event/')
 });
+router.get('/:eventPlace', function (req, res) {
+    event.findOne({ nbrPlace: req.params.eventPlace })
+        .then((data) => { res.status(200).json(data); console.log(data) })
+        .catch((error) => res.status(404).json({ error }))
+
+
+})
+router.get('/search/:eventType', function (req, res) {
+    event.findOne({ typeEvents: req.params.eventType })
+        .then((data) => { res.status(200).json(data); console.log(data) })
+        .catch((error) => res.status(404).json({ error }))
+})
+
 
 module.exports = router;

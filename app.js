@@ -12,7 +12,7 @@ var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/productsServices');
 var eventsRouter = require('./routes/eventsServices')
 var usersRouter = require('./routes/usersServices')
-
+var home = require('./routes/homepage')
 
 var app = express();
 
@@ -31,6 +31,7 @@ app.use('/users', usersRouter);
 app.use('/product', productsRouter);
 app.use('/event', eventsRouter);
 app.use('/user', usersRouter);
+app.use('/home',home);
 
 
 

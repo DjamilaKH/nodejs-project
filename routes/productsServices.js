@@ -1,16 +1,17 @@
+const { json } = require('express');
 var express = require('express');
 var router = express.Router();
 
 var product = require('../models/productsmodel');
 
-router.get('/', function(req, res){
+router.get('/', function (req, res) {
 
-product.find(function(err, data){
+    product.find(function (err, data) {
 
-    if(err) throw err;
-   //res.json(data);
-   res.render("showproducts.twig", {data});
-});
+        if (err) throw err;
+        //res.json(data);
+        res.render("showproducts.twig", { data });
+    });
 });
 router.get('/delete/:id', function (req, res) {
     var idm = req.params.id;
@@ -31,27 +32,38 @@ router.post('/addaction', function (req, res) {
 });
 router.get('/updateform/:id', function (req, res) {
     var idm = req.params.id;
-    product.find({_id: idm}, function (err,data) {
+    product.find({ _id: idm }, function (err, data) {
         // res.json(data);
-         res.render('updateProducts.twig', {data});
-        console.log({data});
+        res.render('updateProducts.twig', { data });
+        console.log({ data });
     });
 
 
 });
-router.post('/updateaction', function(req, res){
-   
-    var idm = req.body.ids;
-    product.findById({_id : idm}, function(err, data){
- 
-     data.ref = req.body.ref;
-     data.libel = req.body.libel;
-     data.prix = req.body.prix;
-     data.type = req.body.type;
+router.post('/updateaction', function (req, res) {
 
-     data.save();
+    var idm = req.body.ids;
+    product.findById({ _id: idm }, function (err, data) {
+
+        data.ref = req.body.ref;
+        data.libel = req.body.libel;
+        data.prix = req.body.prix;
+        data.type = req.body.type;
+
+        data.save();
     });
     res.redirect('/product/')
-     });
+});
+//  recherche des produits selon libellé
+router.get('/:productLib', function (req, res) {
+    product.findOne({ libel: req.params.productLib })
+        .then((data) => { res.status(200).json(data); console.log(data) })
+        .catch((error) => res.status(404).json({ error }))
+
+
+})
+
+
+
 
 module.exports = router;
