@@ -4,18 +4,17 @@
 	<a href="/user/addform">Ajouter</a>
 	<table border="1">
 		<thead>
-			<th>UserName</th>
+
 			<th>Password</th>
 			<th>Email</th>
 			<th>FullName</th>
+			<th>UserName</th>
 			<th>Action</th>
 		</thead>
 		<tbody>
 			{% for item in data %}
 				<tr>
-					<td>
-						{{ item.username}}
-					</td>
+
 					<td>
 						{{ item.password }}
 					</td>
@@ -25,9 +24,11 @@
 					<td>
 						{{ item.fullname }}
 					</td>
-
 					<td>
-						<a href="/user/delete/{{ item._id }}">Supprimer</a>
+						{{ item.username}}
+					</td>
+					<td>
+						<a href="/user/delete/{{ item._id }}">Remove</a>
 
 						<a href="/user/updateForm/{{ item._id }}">Update</a>
 					</td>

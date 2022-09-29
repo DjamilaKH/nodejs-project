@@ -1,0 +1,25 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+	<h1>Formulaire de modification</h1>
+	<a href="/user/">Retour</a>
+	<a href="/user/addform">Ajouter</a>
+	<form method="post" action="/user/updateaction">
+		Reférence :
+		<input type="text" name="password" value="{{data[0].password}}"/>
+		Libellé:
+		<input type="text" name="email" value="{{data[0].email}}"/>
+		fullname:
+		<input type="text"  name="fullname" value="{{data[0].fullname}}"/>
+		Type:
+		<input type="text" name="username" value="{{data[0].username}}"/>
+
+		<input type="hidden" name="ids" value="{{ data[0]._id }}"/>
+		<input
+		type="submit" value="update"/>
+	{# <pre>
+	    {{ dump(data) }}
+	</pre> #}
+	</form>
+{% endblock %}

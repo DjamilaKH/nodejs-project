@@ -1,0 +1,19 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+	<form method="post" action="/user/addaction">
+
+		<b>Password:</b><input type="text" name="password"/>
+		<b>Email:</b>
+		<input type="text" name="email"/>
+		<b>FullName:</b>
+		<input type="text" name="fullname"/>
+		<b>UserName:</b>
+		<input type="text" name="username"/>
+
+
+		<input type="submit" value="Ajouter"/>
+	</form>
+
+
+{% endblock %}

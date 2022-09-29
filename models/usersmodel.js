@@ -3,11 +3,11 @@ var schema = mongoose.Schema;
 
 
 Usersschema = new schema({
-    username: String,
+
     password: String,
     email: String,
     fullname: String,
-
+    username: String,
 
 
 })
